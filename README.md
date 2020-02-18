@@ -8,6 +8,6 @@ Go check it out on our website!
 You can also download the code and play around with it.
 ## Built With
 
-* [HTML]
-* [CSS]
-* [JAVASCRIPT]
+* HTML
+* CSS
+* JAVASCRIPT
