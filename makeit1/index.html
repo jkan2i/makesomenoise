@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main">
+      <table style="width:100%">
+        <tr align="center">
+           <th><div data-key="81" class="key"> <kbd>Q</kbd></th>
+            <th><div data-key="87" class="key"> <kbd>w</kbd></th>
+                <th><div data-key="69" class="key"> <kbd>E</kbd></th>
+                    <th><div data-key="82" class="key"> <kbd>R</kbd></th>
+                        <th><div data-key="84" class="key"> <kbd>T</kbd></th>
+                            <th><div data-key="89" class="key"> <kbd>Y</kbd></th>
+                                <th><div data-key="85" class="key"> <kbd>U</kbd></th>
+                                    <th><div data-key="73" class="key"> <kbd>I</kbd></th>
+                                        <th><div data-key="79" class="key"> <kbd>O</kbd></th>
+                                            <th><div data-key="80" class="key"> <kbd>P</kbd></th>
+                                                <th><div data-key="63" class="key"> <kbd>?</kbd></th>
+                                                
+          
+        </tr>
+
+        <tr align="center">
+            <th><div  class="special key"> <kbd></kbd></th>
+              <th><div data-key="65" class="key"> <kbd>A</kbd></th>  
+              <th><div data-key="83" class="key"> <kbd>S</kbd></th>
+                    <th><div data-key="68" class="key"> <kbd>D</kbd></th>
+                        <th><div data-key="70" class="key"> <kbd>F</kbd></th>
+                            <th><div data-key="71" class="key"> <kbd>G</kbd></th>
+                                <th><div data-key="72" class="key"> <kbd>H</kbd></th>
+                                    <th><div data-key="74" class="key"> <kbd>J</kbd></th>
+                                        <th><div data-key="75" class="key"> <kbd>K</kbd></th>
+                                            <th><div data-key="76" class="key"> <kbd>L</kbd></th>
+                                                
+         
+        </tr>
+
+        <tr align="center">
+          <th class="special key"><kbd></kbd></th>
+          <th class="special key"><kbd></kbd></th>
+          <th><div data-key="90" class="key"> <kbd>Z</kbd></th>
+            <th><div data-key="88" class="key"> <kbd>X</kbd></th>
+                <th><div data-key="67" class="key"> <kbd>C</kbd></th>
+                    <th><div data-key="86" class="key"> <kbd>V</kbd></th>
+                        <th><div data-key="66" class="key"> <kbd>B</kbd></th>
+                            <th><div data-key="78" class="key"> <kbd>N</kbd></th>
+                                <th><div data-key="77" class="key"> <kbd>M</kbd></th>
+         
+        </tr>
+      </table>
+      
+      <div class="check">Check out the damsharas keys! </div>
+    </div>
+  <audio data-key="81" src="sounds/q.wav"></audio>
+  <audio data-key="87" src="sounds/w.wav"></audio>
+  <audio data-key="69" src="sounds/e.wav"></audio>
+  <audio data-key="82" src="sounds/r.wav"></audio>
+  <audio data-key="84" src="sounds/t.wav"></audio>
+  <audio data-key="89" src="sounds/y.wav"></audio>
+  <audio data-key="85" src="sounds/u.wav"></audio>
+  <audio data-key="73" src="sounds/i.wav"></audio>
+  <audio data-key="79" src="sounds/o.wav"></audio>
+  <audio data-key="80" src="sounds/p.wav"></audio>
+  <audio data-key="65" src="sounds/a.wav"></audio>
+  <audio data-key="83" src="sounds/s.wav"></audio>
+  <audio data-key="68" src="sounds/d.wav"></audio>
+  <audio data-key="70" src="sounds/f.wav"></audio>
+  <audio data-key="71" src="sounds/g.wav"></audio>
+  <audio data-key="72" src="sounds/h.wav"></audio>
+  <audio data-key="74" src="sounds/j.wav"></audio>
+  <audio data-key="75" src="sounds/k.wav"></audio>
+  <audio data-key="76" src="sounds/l.wav"></audio>
+  <audio data-key="90" src="sounds/tink.wav"></audio>
+  <audio data-key="88" src="sounds/tink.wav"></audio>
+  <audio data-key="67" src="sounds/tink.wav"></audio>
+  <audio data-key="86" src="sounds/tink.wav"></audio>
+  <audio data-key="66" src="sounds/tink.wav"></audio>
+  <audio data-key="78" src="sounds/tink.wav"></audio>
+  <audio data-key="77" src="sounds/tink.wav"></audio>
+
+  <script>
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') return;
+      e.target.classList.remove('playing');
+    }
+  
+    function playSound(e) {
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      if (!audio) return;
+  
+      key.classList.add('playing');
+      audio.currentTime = 0;
+      audio.play();
+    }
+  
+    const keys = Array.from(document.querySelectorAll('.key'));
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    window.addEventListener('keydown', playSound);
+  </script>
+  
+  </body>
+</html>
